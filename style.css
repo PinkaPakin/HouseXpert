@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@400;600&display=swap');
+
+body {
+  font-family: 'Prompt', sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #fffde7, #21415E);
+  min-height: 100vh;
+
+}
+
+h1 {
+  text-align: center;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* 🔍 Search */
+.search-bar {
+  text-align: center;
+  margin: 20px 0;
+}
+.search-bar input {
+  padding: 12px 20px;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+.search-bar input:focus {
+  border-color: #ff7043;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 112, 67, 0.3);
+}
+
+/* 🎯 ปุ่มเริ่มออกแบบ */
+.start-design {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.btn-start {
+  background: linear-gradient(to right, #2196f3, #1e88e5);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+.btn-start:hover {
+  background: linear-gradient(to right, #1976d2, #1565c0);
+}
+
+/* 🧭 หมวดหมู่ */
+.category-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+.category-bar button {
+  background-color: #ddd;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.category-bar button:hover {
+  background-color: #ff7043;
+  color: white;
+}
+
+/* 🛒 สินค้า */
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.product-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  width: 240px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+}
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+.product-card h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 10px 0 5px;
+}
+.product-card p {
+  font-weight: bold;
+  color: #1b9e2b;
+  margin: 5px 0 15px;
+  font-size: 16px;
+}
+.btn {
+  background: linear-gradient(to right, #ff5722, #e64a19);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s ease;
+  display: inline-block;
+}
+.btn:hover {
+  background: linear-gradient(to right, #e64a19, #d84315);
+}
+
+/* 🔦 Highlight */
+mark {
+  background-color: yellow;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    width: 90%;
+  }
+  h1 {
+    font-size: 22px;
+  }
+}

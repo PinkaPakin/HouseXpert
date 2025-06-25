@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>House-Xpert</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🏠 House-Xpert</h1>
+  <center><p>"เว็บไซต์นี้อยู่ในระหว่างการพัฒนา และจะพร้อมจำหน่ายสินค้าเมื่อได้ affiliate จากShopee"</p></center>
+
+  <!-- 🔍 Search Bar -->
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ค้นหาสินค้า เช่น ปืนกาว, ลูกกลิ้ง, เตาไฟฟ้า..." oninput="searchProducts()" />
+  </div>
+
+  <!-- 🧱 ปุ่ม Start Your Design -->
+  <div class="start-design">
+    <a href="sandbox.html" class="btn-start" target="_blank">🧱 Start Your Design</a>
+  </div>
+
+  <!-- 🧭 หมวดหมู่ -->
+  <div class="category-bar">
+    <button onclick="filterProducts('all')">📦 ทั้งหมด</button>
+    <button onclick="filterProducts('bedroom')">🛏️ ห้องนอน</button>
+    <button onclick="filterProducts('bathroom')">🚿 ห้องน้ำ</button>
+    <button onclick="filterProducts('kitchen')">🍳 ห้องครัว</button>
+    <button onclick="filterProducts('tools')">🛠️ อุปกรณ์ช่าง</button>
+    <button onclick="filterProducts('construction')">🧱 อุปกรณ์ตกแต่งบ้าน</button>
+    <button onclick="filterProducts('electric')">🔌⚡ เครื่องใช้ไฟฟ้า</button>
+  </div>
+
+  <!-- 🛒 สินค้า -->
+  <div id="product-list" class="grid-container">
+
+    <div class="product-card" data-category="bedroom">
+      <img src="https://assets.dunlopillo.co.th/media/images/d1683c65-37ab-48e7-a6d9-f8a41b694d82/2021-majesta-iii-1.jpeg" alt="เตียง bed นอน">
+      <h3>เตียงนอน Dunlopillo รุ่น Majesta III</h3>
+      <p>฿7,140</p>
+      <a href="affiliate link" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="bedroom">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasb-m1zfn0kifmqe72.webp" alt="เตียง bed นอน">
+      <h3>เตียงนอน Dunlopillo รุ่น Majesta X</h3>
+      <p>฿9,690</p>
+      <a href="https://shopee.co.th/-%E0%B8%9F%E0%B8%A3%E0%B8%B5!%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%9B%E0%B8%B9-Dunlopillo-%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%AD%E0%B8%99%E0%B8%A2%E0%B8%B2%E0%B8%87%E0%B8%9E%E0%B8%B2%E0%B8%A3%E0%B8%B2%E0%B9%81%E0%B8%97%E0%B9%89-100-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%A2%E0%B8%AD%E0%B8%94%E0%B8%99%E0%B8%B4%E0%B8%A2%E0%B8%A1%E0%B8%82%E0%B8%AD%E0%B8%87%E0%B8%A2%E0%B8%B8%E0%B9%82%E0%B8%A3%E0%B8%9B-%E0%B8%A5%E0%B8%94%E0%B8%AD%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B8%9B%E0%B8%A7%E0%B8%94%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%84%E0%B8%94%E0%B9%89%E0%B8%95%E0%B8%A3%E0%B8%87%E0%B8%88%E0%B8%B8%E0%B8%94-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Majesta-X-%E0%B8%AA%E0%B9%88%E0%B8%87%E0%B8%9F%E0%B8%A3%E0%B8%B5-i.26975933.13476160646?sp_atk=80ab91e4-e40d-4247-afe5-a9470e9eadde&xptdk=80ab91e4-e40d-4247-afe5-a9470e9eadde" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="bathroom">
+      <img src="data:image/jpeg;base64,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" alt="ห้องน้ำ โถ ส้วม สุขภัณฑ์">
+      <h3>โถส้วม MOYA SN-T008 3/6L สีขาว (HTD) แบรนด์ MOYA</h3>
+      <p>฿3,490</p>
+      <a href="https://shopee.co.th/-%E0%B8%AA%E0%B8%B4%E0%B8%99%E0%B8%84%E0%B9%89%E0%B8%B2%E0%B9%84%E0%B8%A1%E0%B9%88%E0%B8%A3%E0%B8%A7%E0%B8%A1%E0%B8%95%E0%B8%B4%E0%B8%94%E0%B8%95%E0%B8%B1%E0%B9%89%E0%B8%87-HomePro-%E0%B8%AA%E0%B8%B8%E0%B8%82%E0%B8%A0%E0%B8%B1%E0%B8%93%E0%B8%91%E0%B9%8C-1-%E0%B8%8A%E0%B8%B4%E0%B9%89%E0%B8%99-MOYA-SN-T008-3-6L-%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7-(HTD)-%E0%B9%81%E0%B8%9A%E0%B8%A3%E0%B8%99%E0%B8%94%E0%B9%8C-MOYA-i.497840757.9496215117?sp_atk=01d26f20-778c-466c-94c2-1b0d2b131b7c&xptdk=01d26f20-778c-466c-94c2-1b0d2b131b7c" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="bathroom">
+      <img src="data:image/jpeg;base64,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" alt="สายฉีดชำระ">
+      <h3>สายฉีดชำระครบชุด MY-5211 สีโครม แบรนด์ MOYA สาย ยาง</h3>
+      <p>฿209</p>
+      <a href="https://shopee.co.th/HomePro-%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%89%E0%B8%B5%E0%B8%94%E0%B8%8A%E0%B8%B3%E0%B8%A3%E0%B8%B0%E0%B8%84%E0%B8%A3%E0%B8%9A%E0%B8%8A%E0%B8%B8%E0%B8%94-MY-5211-%E0%B8%AA%E0%B8%B5%E0%B9%82%E0%B8%84%E0%B8%A3%E0%B8%A1-%E0%B9%81%E0%B8%9A%E0%B8%A3%E0%B8%99%E0%B8%94%E0%B9%8C-MOYA-%E0%B8%AA%E0%B8%B2%E0%B8%A2-%E0%B8%A2%E0%B8%B2%E0%B8%87-i.497840757.8296204972?sp_atk=2a33c6d7-90ad-4a3d-bdb4-56ba7745de52&xptdk=2a33c6d7-90ad-4a3d-bdb4-56ba7745de52" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="electric">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98s-ls2fcoq8qfgd90.webp" alt="ปลั๊กไฟ">
+      <h3>ปลั๊กไฟ CITY LIFE 3500W รุ่น CTWA-415 SMART WIFI ควบคุมผ่านแอพพลิเคชั่น</h3>
+      <p>฿1,885</p>
+      <a href="https://shopee.co.th/((%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%99-2-%E0%B8%9B%E0%B8%B5))-%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81%E0%B9%84%E0%B8%9F-CITY-LIFE-3500W-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-CTWA-415-SMART-WIFI-%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1%E0%B8%9C%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B9%81%E0%B8%AD%E0%B8%9E%E0%B8%9E%E0%B8%A5%E0%B8%B4%E0%B9%80%E0%B8%84%E0%B8%8A%E0%B8%B1%E0%B9%88%E0%B8%99-i.164311424.23643126913" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="electric">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7ra0q-mb51s1gveddi9a@resize_w900_nl.webp" alt="ปลั๊กไฟ">
+      <h3>ปลั๊กไฟ Vexxo Sportec Grow (10A 2300W) ปลั๊กไฟมอก. รางปลั๊ก USB : สายยาว 3 / 5 เมตร</h3>
+      <p>฿184</p>
+      <a href="https://shopee.co.th/%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81%E0%B9%84%E0%B8%9F-Vexxo-Sportec-Grow-(10A-2300W)-%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81%E0%B9%84%E0%B8%9F%E0%B8%A1%E0%B8%AD%E0%B8%81.-%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81-USB-%E0%B8%AA%E0%B8%B2%E0%B8%A2%E0%B8%A2%E0%B8%B2%E0%B8%A7-3-5-%E0%B9%80%E0%B8%A1%E0%B8%95%E0%B8%A3-i.164311424.28100009005?sp_atk=76851fc6-c672-4cc7-8154-a3916020e218&xptdk=76851fc6-c672-4cc7-8154-a3916020e218" class="btn" target="_blank">🛒 ซื้อเลย</a> </div>
+
+          <div class="product-card" data-category="tools">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98v-lr7lvngjzzctc7@resize_w900_nl.webp" alt="เลื่อย">
+      <h3>MAKITA DUC254RF :MAKITA DUC307RTX1 : เลื่อยโซ่ไร้สาย 12 นิ้ว 18V (ชุดเซ็ท และ เครื่องเปล่า)</h3>
+      <p>฿8,825</p>
+      <a href="https://shopee.co.th/MAKITA-DUC307RTX1-%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%A2%E0%B9%82%E0%B8%8B%E0%B9%88%E0%B9%84%E0%B8%A3%E0%B9%89%E0%B8%AA%E0%B8%B2%E0%B8%A2-12-%E0%B8%99%E0%B8%B4%E0%B9%89%E0%B8%A7-18V-(%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-%E0%B8%AB%E0%B8%A3%E0%B8%B7%E0%B8%AD%E0%B9%80%E0%B8%84%E0%B8%A3%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B9%80%E0%B8%9B%E0%B8%A5%E0%B9%88%E0%B8%B2)-i.647514236.25511916296" class="btn" target="_blank">🛒 ซื้อเลย</a> </div>
+
+                <div class="product-card" data-category="tools">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-23020-igd69m4yrknvab.webp" alt="เลื่อย">
+      <h3>MAKITA UC100DWA : เลื่อยโซ่ตัดกิ่งไม้ไร้สาย 12Vmax 100 มม.</h3>
+      <p>฿8,115</p>
+      <a href="https://shopee.co.th/-%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B9%82%E0%B8%9A%E0%B9%80%E0%B8%8B%E0%B9%87%E0%B8%97-MAKITA-UC100DWA-%E0%B9%80%E0%B8%A5%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%A2%E0%B9%82%E0%B8%8B%E0%B9%88%E0%B8%95%E0%B8%B1%E0%B8%94%E0%B8%81%E0%B8%B4%E0%B9%88%E0%B8%87%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B9%84%E0%B8%A3%E0%B9%89%E0%B8%AA%E0%B8%B2%E0%B8%A2-12Vmax-100-%E0%B8%A1%E0%B8%A1.-(4-)-i.647514236.22024688897" class="btn" target="_blank">🛒 ซื้อเลย</a>
+      </div>
+    <div class="product-card" data-category="bedroom">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7ras8-m2tb4o332foid2.webp" alt="เตียง">
+      <h3>SleepHappy ชุดหัวเตียง + ฐานเตียง พร้อมที่นอน รุ่น Passion ที่นอนพ็อกเก็ตสปริง เสริมชั้นยูโรท็อป สัมผัสนุ่ม</h3>
+      <p>฿10,881</p>
+      <a href="https://shopee.co.th/SleepHappy-%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%AB%E0%B8%B1%E0%B8%A7%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B8%A2%E0%B8%87-%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%95%E0%B8%B5%E0%B8%A2%E0%B8%87-%E0%B8%9E%E0%B8%A3%E0%B9%89%E0%B8%AD%E0%B8%A1%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%AD%E0%B8%99-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Passion-%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%AD%E0%B8%99%E0%B8%9E%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%95%E0%B8%AA%E0%B8%9B%E0%B8%A3%E0%B8%B4%E0%B8%87-%E0%B9%80%E0%B8%AA%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%A2%E0%B8%B9%E0%B9%82%E0%B8%A3%E0%B8%97%E0%B9%87%E0%B8%AD%E0%B8%9B-%E0%B8%AA%E0%B8%B1%E0%B8%A1%E0%B8%9C%E0%B8%B1%E0%B8%AA%E0%B8%99%E0%B8%B8%E0%B9%88%E0%B8%A1-i.83587832.15247657954?sp_atk=c98c187c-5b13-4000-8d55-50263ec4ecb6&xptdk=c98c187c-5b13-4000-8d55-50263ec4ecb6" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="bedroom">
+      <img src="https://th.bing.com/th/id/OIP.yKR2YhV91TeLfQvLIItSogHaHa?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" alt="เตียง">
+      <h3>Dunlopillo ที่นอนยางพาราแท้ 100% ผสาน 9 ชั้นวัสดุคุณภาพสูง รุ่น Bibury หนา 11 นิ้ว</h3>
+      <p>฿8,790</p>
+      <a href="https://shope.ee/5VbPdaz8yy" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="bedroom">
+      <img src="https://th.bing.com/th/id/OIP.dZS9hwOsvCqS3DIWdbNfcAHaE8?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" alt="เตียง">
+      <h3>LOTUS รุ่น Premium II ที่นอนแก้ปวดหลังและสรีระผิดรูปอย่างตรงจุด แน่นสบาย หนา 11 นิ้ว</h3>
+      <p>฿3,576</p>
+      <a href="https://shopee.co.th/-%E0%B8%9F%E0%B8%A3%E0%B8%B5!%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%9B%E0%B8%B9-LOTUS-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Premium-II-%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%AD%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%9B%E0%B8%A7%E0%B8%94%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%87%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AA%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B0%E0%B8%9C%E0%B8%B4%E0%B8%94%E0%B8%A3%E0%B8%B9%E0%B8%9B%E0%B8%AD%E0%B8%A2%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%95%E0%B8%A3%E0%B8%87%E0%B8%88%E0%B8%B8%E0%B8%94-%E0%B9%81%E0%B8%99%E0%B9%88%E0%B8%99%E0%B8%AA%E0%B8%9A%E0%B8%B2%E0%B8%A2-%E0%B8%AB%E0%B8%99%E0%B8%B2-11-%E0%B8%99%E0%B8%B4%E0%B9%89%E0%B8%A7-i.12398136.9014488266?sp_atk=525ae441-345f-486e-9118-7b338af93850&xptdk=525ae441-345f-486e-9118-7b338af93850" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="bathroom">
+      <img src="https://th.bing.com/th/id/OIP.VUllzNLKvO7URYNXDHvVYAHaHa?rs=1&pid=ImgDetMain&cb=idpwebp2&o=7&rm=3" alt="ผ้าปูที่นอน">
+      <h3>SleepHappy Waterproof Protector ผ้ารองที่นอน ผ้ารองกันเปื้อน กันน้ำ 100% กันไรฝุ่นและแบคทีเรีย มียางรัดมุม 4 ด้าน</h3>
+      <p>฿916</p>
+      <a href="https://shopee.co.th/SleepHappy-Waterproof-Protector-%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%99%E0%B8%AD%E0%B8%99-%E0%B8%9C%E0%B9%89%E0%B8%B2%E0%B8%A3%E0%B8%AD%E0%B8%87%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%9B%E0%B8%B7%E0%B9%89%E0%B8%AD%E0%B8%99-%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%99%E0%B9%89%E0%B8%B3-100-%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B9%84%E0%B8%A3%E0%B8%9D%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B9%81%E0%B8%9A%E0%B8%84%E0%B8%97%E0%B8%B5%E0%B9%80%E0%B8%A3%E0%B8%B5%E0%B8%A2-%E0%B8%A1%E0%B8%B5%E0%B8%A2%E0%B8%B2%E0%B8%87%E0%B8%A3%E0%B8%B1%E0%B8%94%E0%B8%A1%E0%B8%B8%E0%B8%A1-4-%E0%B8%94%E0%B9%89%E0%B8%B2%E0%B8%99-i.83587832.8226634052?sp_atk=ebd88d7f-8d70-4c99-b541-d854e5cccea1&xptdk=ebd88d7f-8d70-4c99-b541-d854e5cccea1" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="electric">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7qul3-lh5w0jxrout050.webp" alt="ปลั๊กไฟ">
+      <h3>Toshino รางปลั๊กไฟ 3-6 ช่อง 3-6 สวิตช์ 1.5-5 เมตร 16A/3600W รุ่น JT</h3>
+      <p>฿430-฿860</p>
+      <a href="https://shopee.co.th/%E0%B8%AA%E0%B9%88%E0%B8%87%E0%B8%9F%E0%B8%A3%E0%B8%B5-Toshino-%E0%B8%A3%E0%B8%B2%E0%B8%87%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81%E0%B9%84%E0%B8%9F-3-6-%E0%B8%8A%E0%B9%88%E0%B8%AD%E0%B8%87-3-6-%E0%B8%AA%E0%B8%A7%E0%B8%B4%E0%B8%95%E0%B8%8A%E0%B9%8C-1.5-5-%E0%B9%80%E0%B8%A1%E0%B8%95%E0%B8%A3-16A-3600W-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-JT-i.251098584.22268783006?sp_atk=4e03e05c-4c4a-4d37-a9ab-80134a0c29db&xptdk=4e03e05c-4c4a-4d37-a9ab-80134a0c29db" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="electric">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7rasi-ma0snjzeqicg24@resize_w900_nl.webp" alt="ปลั๊กไฟอัจฉริยะ">
+      <h3>ปลั๊กไฟiOT ปลั๊กไฟอัจฉริยะ ควบคุมเปิด-ปิดผ่านสมาร์ทโฟน มาตรฐาน มอก.(สาย 3 เมตร)</h3>
+      <p>฿1,219</p>
+      <a href="https://shopee.co.th/((%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%99-2-%E0%B8%9B%E0%B8%B5))-%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81%E0%B9%84%E0%B8%9FiOT-%E0%B8%9B%E0%B8%A5%E0%B8%B1%E0%B9%8A%E0%B8%81%E0%B9%84%E0%B8%9F%E0%B8%AD%E0%B8%B1%E0%B8%88%E0%B8%89%E0%B8%A3%E0%B8%B4%E0%B8%A2%E0%B8%B0-%E0%B8%84%E0%B8%A7%E0%B8%9A%E0%B8%84%E0%B8%B8%E0%B8%A1%E0%B9%80%E0%B8%9B%E0%B8%B4%E0%B8%94-%E0%B8%9B%E0%B8%B4%E0%B8%94%E0%B8%9C%E0%B9%88%E0%B8%B2%E0%B8%99%E0%B8%AA%E0%B8%A1%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%97%E0%B9%82%E0%B8%9F%E0%B8%99-%E0%B8%A1%E0%B8%B2%E0%B8%95%E0%B8%A3%E0%B8%90%E0%B8%B2%E0%B8%99-%E0%B8%A1%E0%B8%AD%E0%B8%81.(%E0%B8%AA%E0%B8%B2%E0%B8%A2-3-%E0%B9%80%E0%B8%A1%E0%B8%95%E0%B8%A3)-i.164311424.16371730552?sp_atk=d9f5907e-02b0-46e4-9a09-3b4568b746f4&xptdk=d9f5907e-02b0-46e4-9a09-3b4568b746f4" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="tools">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r990-ltezdxht26yl32@resize_w900_nl.webp" alt="บล็อคไฟฟ้า">
+      <h3> OSUKA บล็อกไฟฟ้า ประกัน 6เดือน 20V บล็อกไฟฟ้าไร้สาย บล็อกแบตเตอรี่ บล็อกไร้สาย บล็อกแบต OSID-520</h3>
+      <p>฿1,590-฿5,480</p>
+      <a href="https://shopee.co.th/-%E0%B8%A3%E0%B8%B2%E0%B8%84%E0%B8%B2%E0%B8%94%E0%B8%B5%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94-OSUKA-%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2-%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%B1%E0%B8%99-6%E0%B9%80%E0%B8%94%E0%B8%B7%E0%B8%AD%E0%B8%99-20V-%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B9%84%E0%B8%9F%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%84%E0%B8%A3%E0%B9%89%E0%B8%AA%E0%B8%B2%E0%B8%A2-%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%95%E0%B9%80%E0%B8%95%E0%B8%AD%E0%B8%A3%E0%B8%B5%E0%B9%88-%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B9%84%E0%B8%A3%E0%B9%89%E0%B8%AA%E0%B8%B2%E0%B8%A2-%E0%B8%9A%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%81%E0%B9%81%E0%B8%9A%E0%B8%95-OSID-520-i.4218745.8948895271?sp_atk=ca294377-39da-4640-8a5c-dbfda93171ed&xptdk=ca294377-39da-4640-8a5c-dbfda93171ed" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+     <div class="product-card" data-category="construction">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98x-lyq0w6uzu26973.webp" alt="อุปกรณ์ตกแต่งบ้าน">
+      <h3> Leowood พื้น SPC คลิกล็อค หนา 5 มม. พร้อม ixpe โฟมในตัว รุ่น Prestige แบบปูตรง</h3>
+      <p>฿1,201</p>
+      <a href="https://shopee.co.th/(%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%95%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B8%97%E0%B9%89%E0%B8%B2%E0%B8%A2!-%E0%B8%AB%E0%B8%A1%E0%B8%94%E0%B9%81%E0%B8%A5%E0%B9%89%E0%B8%A7%E0%B8%AB%E0%B8%A1%E0%B8%94%E0%B9%80%E0%B8%A5%E0%B8%A2)-Leowood-%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99-SPC-%E0%B8%84%E0%B8%A5%E0%B8%B4%E0%B8%81%E0%B8%A5%E0%B9%87%E0%B8%AD%E0%B8%84-%E0%B8%AB%E0%B8%99%E0%B8%B2-5-%E0%B8%A1%E0%B8%A1.-%E0%B8%9E%E0%B8%A3%E0%B9%89%E0%B8%AD%E0%B8%A1-ixpe-%E0%B9%82%E0%B8%9F%E0%B8%A1%E0%B9%83%E0%B8%99%E0%B8%95%E0%B8%B1%E0%B8%A7-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99-Prestige-%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%9B%E0%B8%B9%E0%B8%95%E0%B8%A3%E0%B8%87-i.230390155.4723014986?sp_atk=3a711b12-e002-4327-9b99-a609e0d0640e&xptdk=3a711b12-e002-4327-9b99-a609e0d0640e" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+    <div class="product-card" data-category="kitchen">
+      <img src="https://down-th.img.susercontent.com/file/th-11134201-7rask-m8vtx4ltjgmm1d@resize_w900_nl.webp" alt="ห้องครัว">
+      <h3> ชุดครัว รุ่นคูซิน่า ขนาด 200 ซม. สีแกรนด์ โอ๊ค</h3>
+      <p>฿23,890</p>
+      <a href="https://shopee.co.th/INDEX-LIVING-MALL-%E0%B8%8A%E0%B8%B8%E0%B8%94%E0%B8%84%E0%B8%A3%E0%B8%B1%E0%B8%A7-%E0%B8%A3%E0%B8%B8%E0%B9%88%E0%B8%99%E0%B8%84%E0%B8%B9%E0%B8%8B%E0%B8%B4%E0%B8%99%E0%B9%88%E0%B8%B2-%E0%B8%82%E0%B8%99%E0%B8%B2%E0%B8%94-200-%E0%B8%8B%E0%B8%A1.-%E0%B8%AA%E0%B8%B5%E0%B9%81%E0%B8%81%E0%B8%A3%E0%B8%99%E0%B8%94%E0%B9%8C-%E0%B9%82%E0%B8%AD%E0%B9%8A%E0%B8%84-i.104759754.23869919616?sp_atk=4519a231-fabc-4c90-8de4-0933bec8c3f2&xptdk=4519a231-fabc-4c90-8de4-0933bec8c3f2" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+    
+    <div class="product-card" data-category="kitchen">
+      <img src="https://down-th.img.susercontent.com/file/th-11134207-7r98t-lyw1vt5wwgx56b@resize_w900_nl.webp" alt="ห้องครัว">
+      <h3> MYT ชั้นคว่ำจาน2/3ชั้น แต่ละชั้นมีกันตกและถาดเก็บน้ำ ที่คว่ำชามจาน คว่ำจานระบายน้ําอเนกประสงค์ ชั้นวางคร่อมอ่างล้างจาน</h3>
+      <p>฿185</p>
+      <a href="https://shopee.co.th/MYT-%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%84%E0%B8%A7%E0%B9%88%E0%B8%B3%E0%B8%88%E0%B8%B2%E0%B8%992-3%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99-%E0%B9%81%E0%B8%95%E0%B9%88%E0%B8%A5%E0%B8%B0%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%A1%E0%B8%B5%E0%B8%81%E0%B8%B1%E0%B8%99%E0%B8%95%E0%B8%81%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%96%E0%B8%B2%E0%B8%94%E0%B9%80%E0%B8%81%E0%B9%87%E0%B8%9A%E0%B8%99%E0%B9%89%E0%B8%B3-%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%84%E0%B8%A7%E0%B9%88%E0%B8%B3%E0%B8%8A%E0%B8%B2%E0%B8%A1%E0%B8%88%E0%B8%B2%E0%B8%99-%E0%B8%84%E0%B8%A7%E0%B9%88%E0%B8%B3%E0%B8%88%E0%B8%B2%E0%B8%99%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B2%E0%B8%A2%E0%B8%99%E0%B9%89%E0%B9%8D%E0%B8%B2%E0%B8%AD%E0%B9%80%E0%B8%99%E0%B8%81%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%87%E0%B8%84%E0%B9%8C-%E0%B8%8A%E0%B8%B1%E0%B9%89%E0%B8%99%E0%B8%A7%E0%B8%B2%E0%B8%87%E0%B8%84%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8%A1%E0%B8%AD%E0%B9%88%E0%B8%B2%E0%B8%87%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%87%E0%B8%88%E0%B8%B2%E0%B8%99-i.1189925137.26657778894?sp_atk=a2820338-90d3-4368-9ea1-6bcf73c5730d&xptdk=a2820338-90d3-4368-9ea1-6bcf73c5730d" class="btn" target="_blank">🛒 ซื้อเลย</a>
+    </div>
+
+
+    
+
+  </div>
+
+  <!-- 🔧 Script -->
+  <script>
+    function normalizeString(str) {
+      return str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, '');
+    }
+
+    function highlightMatch(text, keyword) {
+      const index = text.toLowerCase().indexOf(keyword.toLowerCase());
+      if (index === -1) return text;
+      return text.substring(0, index) + '<mark>' + text.substring(index, index + keyword.length) + '</mark>' + text.substring(index + keyword.length);
+    }
+
+    function searchProducts() {
+      const input = normalizeString(document.getElementById('searchInput').value);
+      const rawInput = document.getElementById('searchInput').value;
+      const products = document.querySelectorAll('.product-card');
+
+      products.forEach(product => {
+        const nameElem = product.querySelector('h3');
+        const rawName = nameElem.textContent;
+        const normName = normalizeString(rawName);
+        if (normName.includes(input)) {
+          product.style.display = 'block';
+          nameElem.innerHTML = highlightMatch(rawName, rawInput);
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+
+    function filterProducts(category) {
+      const products = document.querySelectorAll('.product-card');
+      products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+        product.style.display = (category === 'all' || productCategory === category) ? 'block' : 'none';
+
+        // Reset highlight
+        const nameElem = product.querySelector('h3');
+        nameElem.innerHTML = nameElem.textContent;
+      });
+      document.getElementById('searchInput').value = '';
+    }
+  </script>
+</body>
+</html>
